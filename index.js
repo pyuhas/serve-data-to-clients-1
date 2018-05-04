@@ -46,7 +46,7 @@ app.use(morgan(process.env.NODE_ENV !== 'production' ? 'dev' : 'combined'))
 app.use(cors({origin: true, credentials: true}))
 
 app.get('/', (req, res) => {
-  res.json({data})
+  res.json({data: data})
 })
 
 app.get('/:id', (req, res) => {
