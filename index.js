@@ -6,38 +6,38 @@ const app         = express()
 const PORT        = process.env.PORT || 3000
 const data = [
   {
-    "ID": 1,
-    "Cohort Name": "17-01-WD-DP",
-    "Cohort Code": "g100",
-    "Number of Students": 28
+    "id": 1,
+    "cohortName": "17-01-WD-DP",
+    "cohortCode": "g100",
+    "numberOfStudents": 28
   },
   {
-    "ID": 2,
-    "Cohort Name": "17-01-DS-GT",
-    "Cohort Code": "g105",
-    "Number of Students": 24
+    "id": 2,
+    "cohortName": "17-01-DS-GT",
+    "cohortCode": "g105",
+    "numberOfStudents": 24
   },
   {
-    "ID": 3,
-    "Cohort Name": "17-02-WD-PX",
-    "Cohort Code": "g109",
-    "Number of Students": 30
+    "id": 3,
+    "cohortName": "17-02-WD-PX",
+    "cohortCode": "g109",
+    "numberOfStudents": 30
   },
   {
-    "ID": 4,
-    "Cohort Name": "17-03-WD-BD",
-    "Cohort Code": "g110",
-    "Number of Students": 29
+    "id": 4,
+    "cohortName": "17-03-WD-BD",
+    "cohortCode": "g110",
+    "numberOfStudents": 29
   }
 ]
 
 function findById(data, id) {
   for (let i = 0; i < data. length; i++) {
     if (data[i].ID == id) {
-      return data[i];
+      return data[i]
     }
   }
-    return null;
+    return null
 }
 
 app.use(bodyParser.json())
@@ -46,7 +46,7 @@ app.use(morgan(process.env.NODE_ENV !== 'production' ? 'dev' : 'combined'))
 app.use(cors({origin: true, credentials: true}))
 
 app.get('/', (req, res) => {
-  res.json(data)
+  res.json({data})
 })
 
 app.get('/:id', (req, res) => {
@@ -60,6 +60,6 @@ app.get('/:id', (req, res) => {
   } else {
   res.json({data: record})
   }
-});
+})
 
 app.listen(PORT, () => console.log('Example app running'))
